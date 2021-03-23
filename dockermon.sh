@@ -58,7 +58,7 @@ jq -c ".[]" $config_file | while read item; do
 
         if (( $(echo "$cpu_percentage >= $cpu_threshold" | bc -l) )); then
             inc_file_num "$cpu_file"
-            script_echo "container '$container' met CPU threshold ($(cat $cpu_file))"
+            script_echo "container '$container' passed CPU threshold ($(cat $cpu_file))"
     
             for i in ${cpu_intervals//,/ }; do
                 if (( $(echo "$(cat $cpu_file) == $i" | bc -l) )); then
@@ -79,7 +79,7 @@ jq -c ".[]" $config_file | while read item; do
 
         if (( $(echo "$memory_percentage >= $memory_threshold" | bc -l) )); then
             inc_file_num "$memory_file"
-            script_echo "container '$container' met memory threshold ($(cat $memory_file))"
+            script_echo "container '$container' passed memory threshold ($(cat $memory_file))"
     
             for i in ${memory_intervals//,/ }; do
                 if (( $(echo "$(cat $memory_file) == $i" | bc -l) )); then
