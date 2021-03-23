@@ -1,0 +1,9 @@
+[{
+    "container": "webserver",
+    "cpu_threshold": 70.0,
+    "cpu_command": "/home/foo/scripts/notify-admin.sh",
+    "cpu_intervals": "5",
+    "memory_threshold": 90,
+    "memory_command": "docker stop webserver",
+    "memory_intervals": "5,15,30,120"
+}]
