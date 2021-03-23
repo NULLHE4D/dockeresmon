@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 
 function script_echo() {
-    echo "[dockermon] $(date) $1"
+    echo "[dockeresmon] $(date) $1"
 }
 
 function inc_file_num() {
@@ -24,11 +24,11 @@ while getopts "c:" opt; do
 done
 
 if [ -z "$config_file" ]; then
-    >&2 echo "usage: dockermon.sh -c [CONFIG_FILE]"
+    >&2 echo "usage: dockeresmon.sh -c [CONFIG_FILE]"
     exit 1
 fi
 
-tmp_dir="/tmp/dockermon"
+tmp_dir="/tmp/dockeresmon"
 mkdir -p $tmp_dir
 
 stats=$(docker stats --no-stream)
